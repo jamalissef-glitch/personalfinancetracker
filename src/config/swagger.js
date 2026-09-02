@@ -13,8 +13,15 @@ const options = {
 
     servers: [
       {
-        url: "http://localhost:5000",
-        description: "Local development server",
+        url:
+          process.env.NODE_ENV === "development"
+            ? "http://localhost:5000"
+            : "https://personal-finance-tracker-xdul.onrender.com",
+
+        description:
+          process.env.NODE_ENV === "development"
+            ? "Local development server"
+            : "Production server",
       },
     ],
 
